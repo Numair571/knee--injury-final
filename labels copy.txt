@@ -1,0 +1,5 @@
+0 Normal
+1 Doubtful
+2 Mild
+3 Moderate
+4 Severe

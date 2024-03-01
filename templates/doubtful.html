@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Living</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Style the buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Style the sections */
+        #exerciseData, #dietData {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Healthy Living</h1>
+    </header>
+
+    <h2>Based on the image, the system predicts the result is {{status}}</h2>
+
+    <button id="exerciseBtn">Exercise</button>
+    <button id="dietBtn">Diet</button>
+
+    <div id="exerciseData">
+        <h1>Contact Your Doctor</h1>
+        <p>If the system predicts a need for exercise, it's recommended to consult with your doctor for personalized advice.</p>
+    </div>
+
+    <div id="dietData">
+        <h1>Contact Your Doctor</h1>
+        <p>If the system suggests changes to your diet, it's advisable to reach out to your doctor for professional guidance.</p>
+    </div>
+
+    <script>
+        document.getElementById("exerciseBtn").addEventListener("click", function() {
+          document.getElementById("exerciseData").style.display = "block";
+          document.getElementById("dietData").style.display = "none";
+        });
+        
+        document.getElementById("dietBtn").addEventListener("click", function() {
+          document.getElementById("dietData").style.display = "block";
+          document.getElementById("exerciseData").style.display = "none";
+        });
+    </script>
+</body>
+</html>

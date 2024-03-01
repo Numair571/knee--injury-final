@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Living</title>
+    <style>
+        #exerciseData,
+        #dietData {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the buttons */
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Style the sections */
+        #exerciseData {
+            border: 1px solid #e74c3c;
+        }
+
+        #dietData {
+            border: 1px solid #27ae60;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Healthy Living</h1>
+    <h2>Based on the image, the system predicts the result is {{status}}</h2>
+    <button id="exerciseBtn">Exercise</button>
+    <button id="dietBtn">Diet</button>
+
+    <div id="exerciseData">
+        <h2>Knee Stretching Exercises</h2>
+
+        <div>
+            <h3>Exercise 1: Heel Cord Stretch</h3>
+            <img src="/severe_images/severe_exercise1_image.jpg" alt="Heel Cord Stretch" />
+            <ul>
+                <li>Stand facing a wall with your unaffected leg forward with a slight bend at the knee.</li>
+                <li>Keep both heels flat on the floor and press your hips forward toward the wall.</li>
+                <li>Hold this stretch for 30 seconds and then relax. Repeat.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Exercise 2: Calf Raises</h3>
+            <img src="severe_images/severe_exercise2_image.jpg" alt="Calf Raises" />
+            <ul>
+                <li>Stand with your weight evenly distributed over both feet. Hold onto the back of a chair or a wall for balance.</li>
+                <li>Lift your unaffected foot off of the floor so that all of your weight is placed on your affected foot.</li>
+                <li>Raise the heel of your affected foot as high as you can, then lower. Repeat 10 times.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Exercise 3: Straight-Leg Raises</h3>
+            <img src="moderate_images/moderate_exercise3_image.jpg" alt="Straight-Leg Raises" />
+            <ul>
+                <li>Lie on the floor with your elbows directly under your shoulders to support your upper body.</li>
+                <li>Keep your affected leg straight and bend your other leg so that your foot is flat on the floor.</li>
+                <li>Tighten the thigh muscle of your affected leg and slowly raise it 6 to 10 inches off the floor.</li>
+                <li>Hold this position for 5 seconds and then relax. Repeat. Repeat with the opposite leg.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="dietData">
+        <h2>Diet Recommendations</h2>
+        <p>Here are some general suggestions that might be considered for individuals with a severe knee fracture. These recommendations may vary depending on the severity of the injury, and professional advice should always be sought.</p>
+        <ul>
+            <li><strong>Vitamin D:</strong> Vitamin D plays an important role in drawing calcium from your blood into the bones. Without adequate doses of vitamin D...</li>
+            <li><strong>Vitamin K:</strong> This vitamin plays a key role in strengthening osteocalcin, a protein component of bone, without increasing the mineral density of bone.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById("exerciseBtn").addEventListener("click", function () {
+            document.getElementById("exerciseData").style.display = "block";
+            document.getElementById("dietData").style.display = "none";
+        });
+
+        document.getElementById("dietBtn").addEventListener("click", function () {
+            document.getElementById("dietData").style.display = "block";
+            document.getElementById("exerciseData").style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

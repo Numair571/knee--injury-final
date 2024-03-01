@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Living</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #009688;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #009688;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        #exerciseData, #dietData {
+            display: none;
+            margin-top: 20px;
+            border: 2px solid #009688;
+            padding: 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Healthy Living</h1>
+    <h2>Based on the image, the system predicts the result is {{status}}</h2>
+    <button id="exerciseBtn">Exercise</button>
+    <button id="dietBtn">Diet</button>
+
+    <div id="exerciseData">
+        <h2>Knee Stretching Exercises</h2>
+
+        <div>
+            <h3>Exercise 1: Leg Extensions</h3>
+            <img src="/moderate_images/moderate_exercise1_image.jpg" alt="Exercise 1" />
+            <ul>
+                <li>Sit up straight on a chair or bench.</li>
+                <li>Tighten your thigh muscles and slowly straighten and raise your affected leg as high as possible.</li>
+                <li>Squeeze your thigh muscles and hold this position for 5 seconds. Relax and bring your foot to the floor. Repeat.</li>
+            </ul>
+            <p>Tip: Do not swing your leg or use forceful momentum to lift it higher</p>
+        </div>
+
+        <!-- Include similar styling for Exercise 2 and Exercise 3 -->
+
+    </div>
+
+    <div id="dietData">
+        <h2>Diet Recommendations</h2>
+        <p>Here are some general suggestions that might be considered for individuals with a moderate knee fracture. These recommendations may vary depending on the severity of the injury, and professional advice should always be sought.</p>
+        <ul>
+            <li><strong>Range of Motion (ROM) Exercises:</strong> Gentle range of motion exercises can help maintain flexibility in the knee joint. Ankle pumps, straight leg raises, and seated knee extensions might be appropriate.</li>
+            <li><strong>Isometric Exercises:</strong> These exercises involve contracting muscles without moving the joint. Isometric exercises for the quadriceps and hamstrings can help maintain muscle strength without putting too much stress on the knee.</li>
+            <li><strong>Walking with Assistance:</strong> Initially, walking with crutches or a walker may be recommended. As you progress, your healthcare provider will guide you on when it's safe to increase weight-bearing.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById("exerciseBtn").addEventListener("click", function() {
+            document.getElementById("exerciseData").style.display = "block";
+            document.getElementById("dietData").style.display = "none";
+        });
+
+        document.getElementById("dietBtn").addEventListener("click", function() {
+            document.getElementById("dietData").style.display = "block";
+            document.getElementById("exerciseData").style.display = "none";
+        });
+    </script>
+</body>
+
+</html>
