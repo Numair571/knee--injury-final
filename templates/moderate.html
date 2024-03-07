@@ -61,13 +61,14 @@
     <h2>Based on the image, the system predicts the result is {{status}}</h2>
     <button id="exerciseBtn">Exercise</button>
     <button id="dietBtn">Diet</button>
+    <a class="btn" href="/main">Back</a>
 
     <div id="exerciseData">
         <h2>Knee Stretching Exercises</h2>
 
         <div>
             <h3>Exercise 1: Leg Extensions</h3>
-            <img src="/moderate_images/moderate_exercise1_image.jpg" alt="Exercise 1" />
+            <img src="{{ url_for('static', filename='moderate_images/moderate_exercise3_image.jpg')}}" alt="Exercise 1" />
             <ul>
                 <li>Sit up straight on a chair or bench.</li>
                 <li>Tighten your thigh muscles and slowly straighten and raise your affected leg as high as possible.</li>

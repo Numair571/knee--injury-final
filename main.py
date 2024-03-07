@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 import os
 from pymongo import MongoClient
 
-cluster=MongoClient('mongodb://localhost:27017')
+cluster=MongoClient('mongodb://127.0.0.1:27017')
 db=cluster['knee']
 users=db['users']
 
@@ -14,9 +14,11 @@ app = Flask(__name__)
 
 # Load your trained Keras model
 model = load_model("keras_model.h5", compile=False)
+model1= load_model("keras_modeld.h5",compile=False)
 
 # Load the labels
 class_names = open("labels.txt", "r").readlines()
+class_names1= open("labelsd.txt", "r").readlines()
 
 def model_predict(img_path, model,class_names):
     # Load and preprocess the image
@@ -39,6 +41,10 @@ def model_predict(img_path, model,class_names):
 @app.route('/')
 def index():
     return render_template('login.html')
+
+@app.route('/main')
+def mainPage():
+    return render_template('main.html')
 
 @app.route('/login',methods=['post','get'])
 def login():
@@ -70,7 +76,19 @@ def register():
         return render_template('signup.html',status="Registration successful")
 
 
-
+def analyse(file_path,model,class_names):
+    class_name, confidence_score = model_predict(file_path, model,class_names)
+    print(class_name,len(class_name))
+    if class_name.strip()=='Mild':
+        return render_template('mild.html',status=class_name)
+    elif class_name.strip()=='Moderate':
+        return render_template('moderate.html',status=class_name)
+    elif class_name.strip()=='Normal':
+        return render_template('normal.html',status=class_name)
+    elif class_name.strip()=='Severe':
+        return render_template('severe.html',status=class_name)
+    else:
+        return render_template('doubtful.html',status=class_name)
 @app.route('/predict', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
@@ -99,6 +117,40 @@ def upload_file():
         else:
             return render_template('doubtful.html',status=class_name)
     return "invalid"
+
+@app.route('/predict1', methods=['POST'])
+def upload_file1():
+    if request.method == 'POST':
+        # Get the file from post request
+        f = request.files['file']
+
+        # Ensure the 'uploads' folder exists
+        uploads_folder = os.path.join(app.root_path, 'uploads')
+        os.makedirs(uploads_folder, exist_ok=True)
+
+        # Save the file to ./uploads
+        file_path = os.path.join(uploads_folder, secure_filename(f.filename))
+        f.save(file_path)
+
+        # Make prediction
+        class_name, confidence_score = model_predict(file_path, model1,class_names1)
+        print(class_name,len(class_name))
+        if class_name.strip()=='dummy_images':
+            return render_template('main.html',status="Wrong Image Format")
+        elif class_name.strip()=='fracture_images':
+            class_name, confidence_score = model_predict(file_path, model,class_names)
+            print(class_name,len(class_name))
+            if class_name.strip()=='Mild':
+                return render_template('mild.html',status=class_name)
+            elif class_name.strip()=='Moderate':
+                return render_template('moderate.html',status=class_name)
+            elif class_name.strip()=='Normal':
+                return render_template('normal.html',status=class_name)
+            elif class_name.strip()=='Severe':
+                return render_template('severe.html',status=class_name)
+            else:
+                return render_template('doubtful.html',status=class_name)
+        
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)

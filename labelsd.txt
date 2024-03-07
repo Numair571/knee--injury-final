@@ -1,0 +1,2 @@
+0 dummy_images
+1 fracture_images

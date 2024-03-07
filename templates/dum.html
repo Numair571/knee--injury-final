@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keras Model Prediction</title>
+</head>
+<body>
+    <h1>Dummy Model Prediction</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="image">Choose an image:</label>
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <h2>Prediction Result:</h2>
+    <p id="prediction"></p>
+    <p id="confidence"></p>
+
+    <script>
+        // You can add JavaScript for additional functionality if needed
+    </script>
+</body>
+</html>
